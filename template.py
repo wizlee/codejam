@@ -43,6 +43,18 @@ def compute_all():
 
 
 def get_all_input():
+  '''This function is sufficient for most problems, get_all_input_safe() is not needed and is for reference only'''
+  test_cases = []
+
+  N = int(input()) # read a line with a single integer, this is expected to be the number of test cases
+  for i in range(1, N + 1):
+    f ,R ,t ,r ,g = (float(var) for var in input().split(' ')) # read a list of floats, 5 in this case
+    test_cases.append(TestCase(f, R, t, r, g))
+
+  return Input(N, test_cases)
+
+
+def get_all_input_safe():
   test_cases = []
 
   with fileinput.input() as f_input:
