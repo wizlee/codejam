@@ -8,6 +8,7 @@
     "version": "0.2.0",
     "configurations": [
       // https://stackoverflow.com/questions/59060237/how-to-setup-visual-studio-code-stdin-stdout-redirection-for-python-debugger
+      // https://code.visualstudio.com/docs/editor/debugging#_redirect-inputoutput-tofrom-the-debug-target
       {
         "name": "Python: debug with pipe",
         "type": "python",
@@ -16,15 +17,23 @@
         "console": "integratedTerminal",
         "args": [
           "<",
-          "${fileDirname}/q-input.txt"
+          "${fileDirname}/input.txt"
         ]
       }
     ],
     "compounds": []
   },
   "settings": {
-    // force using cmd as debugging python script with stdin are causing issue in git bash
-    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    // use python 3.7 to match codejam platform setup
+    // https://codingcompetitions.withgoogle.com/codejam/faq#platform
+    "terminal.integrated.env.windows": {
+      "BASH_INIT_COMMAND": "conda activate py37"
+    },
+    // Using cmd to debug python script as redirection to stdin is causing issue in git bash
+    "terminal.integrated.automationProfile.windows": {
+      "path": "C:\\Windows\\System32\\cmd.exe",
+      "icon": "window"
+    },
     "[cpp]": {
       "editor.tabSize": 4
     },

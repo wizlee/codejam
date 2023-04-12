@@ -23,6 +23,27 @@ GL HF!
     - Round D is meant for experienced competitors. It is between a Code Jam Round 3 and Finals difficulty.
 - Some problem might only be possible to solve by using C++ due to performance reason.
 
+## CodeJam Platform Specifications
+- https://codingcompetitions.withgoogle.com/codejam/faq#platform
+- 64-bit version of Debian 10.9 (buster)
+    - Install package using `apt-get install -y --no-install-recommends <package>`
+- Linux Kernel
+    - Linux version 4.19.0-16-cloud-amd64
+    - package: linux-image-cloud-amd64
+- Stack size limit
+    - 64 MB per language, defined by `ulimit -s 65536`
+    - JVM-based languages are passed the `-Xss64m` flag during execution.
+- Languages Specific specs
+    - C++
+        - gcc 8.3.0 (packages: gcc, g++)
+        - `g++ Solution.cc -std=c++17 -pthread -O2 -o Solution`
+        - ./Solution
+    - Python 3:
+        - 3.7.3 (package: python3.7)
+            - numpy 1.19.3 (`pip install numpy`)
+            - scipy 1.5.3 (`pip install scipy`)
+        - python3 Solution.py
+
 ## Interactive Problem
 - In an interactive problem, our judging system and your code run at the same time.
 - When you send output to your output stream, the judge reads that output and then responds by sending input to your input stream. 
