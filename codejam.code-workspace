@@ -4,6 +4,22 @@
 			"path": "."
 		}
 	],
+  "tasks": {
+    "version": "2.0.0",
+    // attempt to run a command before debugging a python file. Still no workaround available
+    // https://github.com/microsoft/vscode/issues/79932
+    "tasks": [
+      {
+        "label": "set conda env to py37",
+        "type": "process",
+        "command": "cmd",
+        "args": [
+          "/C",
+          "conda 'activate py37'",
+        ],
+      }
+    ]
+  },
   "launch": {
     "version": "0.2.0",
     "configurations": [
@@ -13,6 +29,7 @@
         "name": "Python: debug with pipe",
         "type": "python",
         "request": "launch",
+        // "preLaunchTask": "set conda env to py37",
         "program": "${file}",
         "console": "integratedTerminal",
         "args": [
@@ -31,8 +48,7 @@
     },
     // Using cmd to debug python script as redirection to stdin is causing issue in git bash
     "terminal.integrated.automationProfile.windows": {
-      "path": "C:\\Windows\\System32\\cmd.exe",
-      "icon": "window"
+      "path": "C:\\Windows\\System32\\cmd.exe"
     },
     "[cpp]": {
       "editor.tabSize": 4
