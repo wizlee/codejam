@@ -1,5 +1,5 @@
 '''
-Codejam 20XX; round X: Problem name
+Codejam 2023; farewell round: Problem name
 - https://link-to-problem.com
 - run this program using `python {this filename} < input.txt`
   - Example: `python template.py input.txt`
@@ -10,7 +10,6 @@ from dataclasses import dataclass
 
 @dataclass
 class TestCase:
-  '''each of the member here is a value from a single line input separated by space'''
   f: float
   R: float
   t: float
@@ -45,12 +44,12 @@ def compute_all():
 def get_all_input():
   test_cases = []
 
-  N = int(input()) # read a line with a single integer, this is expected to be the number of test cases
-  for _ in range(1, N + 1):
+  T = int(input()) # read a line with a single integer, this is expected to be the number of test cases
+  for _ in range(T):
     f ,R ,t ,r ,g = (float(var) for var in input().split(' ')) # read a list of floats, 5 in this case
     test_cases.append(TestCase(f, R, t, r, g))
 
-  return Input(N, test_cases)
+  return Input(T, test_cases)
 
 
 def compute(test_case: TestCase):

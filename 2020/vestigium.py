@@ -1,6 +1,6 @@
 '''
 Codejam 2020; qualification round: Vestigium (7pts)
-- https://link-to-problem.com
+- https://codingcompetitions.withgoogle.com/codejam/round/000000000019fd27/000000000020993c
 - run this program using `python {this filename} < input.txt`
   - Example: `python template.py input.txt`
 '''
