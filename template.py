@@ -1,12 +1,18 @@
 '''
 Codejam 2023; farewell round: Problem name
 - https://link-to-problem.com
-- run this program using `python {this filename} < input.txt`
-  - Example: `python template.py input.txt`
+- run this program using `python {this filename} < filename.txt`
+  - Example: `python template.py template.txt`
 '''
 
 from dataclasses import dataclass
 
+
+
+@dataclass
+class Input:
+  total_input: int
+  test_cases: list # list of TestCase
 
 @dataclass
 class TestCase:
@@ -15,11 +21,6 @@ class TestCase:
   t: float
   r: float
   g: float
-
-@dataclass
-class Input:
-  total_input: int
-  test_cases: list # list of TestCase
 
 
 def main():
@@ -44,9 +45,9 @@ def compute_all():
 def get_all_input():
   test_cases = []
 
-  T = int(input()) # read a line with a single integer, this is expected to be the number of test cases
+  T = int(input())
   for _ in range(T):
-    f ,R ,t ,r ,g = (float(var) for var in input().split(' ')) # read a list of floats, 5 in this case
+    f ,R ,t ,r ,g = (float(var) for var in input().split(' '))
     test_cases.append(TestCase(f, R, t, r, g))
 
   return Input(T, test_cases)

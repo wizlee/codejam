@@ -34,7 +34,7 @@
         "console": "integratedTerminal",
         "args": [
           "<",
-          "${fileDirname}/input.txt"
+          "${fileDirname}/${fileBasenameNoExtension}.txt"
         ]
       }
     ],
