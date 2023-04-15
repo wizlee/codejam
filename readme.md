@@ -3,6 +3,29 @@ The last CodeJam creates a big enough motivation for me to join despite the awkw
 
 GL HF! 
 
+## Final Thought after participating
+> This has been a fun one 😎
+
+- Have the most fun attempting problem 2 `Illumination Optimisation`
+- Running short on time as joining an hour late. 
+    - Still, with this experience learnt how to analyse a problem better
+    - better equiped with common coding patterns to solve problem faster
+- Randomly view a few people that got 100% and noticed that they are all using C++
+    - C++ does have an advantage in precise memory management and more performant. 
+    - However I wonder
+        - If this happens partially due to people with C++ skills usually are better with algorithm
+        - If I will be able to do better if I chose C++ instead of Python.
+            - I doubt I will do better unless I invest significant amount of time practicing.
+            - Python has a lot of nice shorthand and even though I am familar with C++ I don't have any experience of using it to solve problem quickly in a time-boxed manner.
+- ==Learnings==
+    - `[[]] * 5` and `[[] for _ in range(5)]` defers in that the first approach results in a nested list where all the inner list references the SAME list.
+    - Practise and preparation really helps a lot in time-boxed coding challenge.
+        - Despite only prepare a rough template that helps with getting inputs into data structures, that already helps speed up significantly.
+        - Only after a round of competition, my template is already much better that before I started.
+        - Will look for other coding competition to join so that my templates don't go to waste! 🤘
+
+
+
 ## Motivation
 - Aside from the rarity of this will be the final round, the main purpose of joining are to improve my programming skills and add experiences in my portfolio.
 - In my opinion, a great competitor in coding competition such as CodeJam will not gurantee a great programmer.

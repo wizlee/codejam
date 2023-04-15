@@ -53,6 +53,29 @@ def get_all_input():
 
 
 def compute(test_case: TestCase):
+  who_lights_this_slot = {}
+
+  for street_light_index, loc in enumerate(test_case.light_loc):
+    these_slots_are_lit = [i for i in range(max(0, loc - test_case.R), min(test_case.M, loc + test_case.R))]
+    for slot in these_slots_are_lit:
+      if slot in who_lights_this_slot.keys():
+        who_lights_this_slot[slot].append(street_light_index)
+      else:
+        who_lights_this_slot[slot] = [street_light_index]
+
+  if is_all_slot_lit(who_lights_this_slot):
+    all_slots_with_1_light = [slot for slot in set([tuple(x) for x in who_lights_this_slot.values()]) if len(slot) == 1]
+    answer = str(len(all_slots_with_1_light))
+  else:
+    answer = "IMPOSSIBLE"
+
+  return answer
+
+def is_all_slot_lit(d):
+  keys = list(d.keys())
+  return min(keys) + len(keys) - 1 == max(keys)
+
+def compute_that_uses_too_much_mem(test_case: TestCase):
   who_lights_this_slot = [[] for _ in range(test_case.M)] # do not use `[[]] * test_case.M` because all the list element will reference to the SAME list
 
   for street_light_index, loc in enumerate(test_case.light_loc):
