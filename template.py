@@ -1,12 +1,12 @@
 '''
 Codejam 20XX; round X: Problem name
 - https://link-to-problem.com
-- run this program using `python {this filename} < {input.txt file}`
-  - Example: `python template.py sample-input.txt`
+- run this program using `python {this filename} < input.txt`
+  - Example: `python template.py input.txt`
 '''
 
 from dataclasses import dataclass
-import fileinput
+
 
 @dataclass
 class TestCase:
@@ -27,54 +27,28 @@ def main():
   print_output(compute_all())
 
 
-def print_output(ans_list):
-  for i, prod in enumerate(ans_list):
-    print(f'Case #{i+1}: {str(prod)}')
+def print_output(results):
+  for i, result in enumerate(results):
+    print(f'Case #{i+1}: {str(result)}')
 
 
 def compute_all():
   input : Input = get_all_input()
-  prods_str = []
+  results = []
   for i in range(input.total_input):
     test_case : TestCase = input.test_cases[i]
-    prods_str.append(str(compute(test_case)))
+    results.append(compute(test_case))
 
-  return prods_str
+  return results
 
 
 def get_all_input():
-  '''This function is sufficient for most problems, get_all_input_safe() is not needed and is for reference only'''
   test_cases = []
 
   N = int(input()) # read a line with a single integer, this is expected to be the number of test cases
-  for i in range(1, N + 1):
+  for _ in range(1, N + 1):
     f ,R ,t ,r ,g = (float(var) for var in input().split(' ')) # read a list of floats, 5 in this case
     test_cases.append(TestCase(f, R, t, r, g))
-
-  return Input(N, test_cases)
-
-
-def get_all_input_safe():
-  test_cases = []
-
-  with fileinput.input() as f_input:
-    for line in f_input:
-      if f_input.isfirstline():
-        N = int(line)
-        continue
-
-      if f_input.filelineno() > N + 1:
-        fileinput.close() # protect against invalid inputs
-        break
-
-      variables = line.split(' ')
-      f = float(variables[0])
-      R = float(variables[1])
-      t = float(variables[2])
-      r = float(variables[3])
-      g = float(variables[4])
-
-      test_cases.append(TestCase(f, R, t, r, g))
 
   return Input(N, test_cases)
 
